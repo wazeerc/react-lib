@@ -129,4 +129,21 @@ export const setFocus = (
 };
 
 //#endregion
+
+//#region promptBeforeUnload
+
+/**
+ * @summary Prompts the user before unloading the page.
+ * @param message - The message to display to the user.
+ * @example promptBeforeUnload("Are you sure you want to leave?");
+ */
+export const promptBeforeUnload = (message: string): void => {
+  window.addEventListener("beforeunload", (event) => {
+    event.preventDefault();
+    event.returnValue = message;
+  });
+};
+
+//#endregion
+
 //#endregion
