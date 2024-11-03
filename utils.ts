@@ -1,6 +1,7 @@
 import React from "react";
 
-//#region Custom hooks
+//#region Custom hooks;
+
 //#region useEffectWithMount
 
 const NO_DEPENDENCIES: unknown[] = [];
@@ -27,7 +28,6 @@ export const useEffectWithMount = (
 //#endregion
 
 //#region useWindowDimensions
-
 type TWindowDimensions = {
   width: number;
   height: number;
@@ -99,11 +99,12 @@ export function useWindowDimensions(): IUseWindowDimensionsProps {
   return { windowDimensions, device };
 }
 //#endregion
+
 //#endregion
 
-//#region Utils
-//#region setFocus
+//#region Utils;
 
+//#region setFocus
 const NO_DELAY = 0;
 /**
  * @summary Sets focus on the specified target element after an optional delay.
@@ -127,23 +128,21 @@ export const setFocus = (
 
   setTimeout(() => element.focus(), delay);
 };
-
 //#endregion
 
 //#region promptBeforeUnload
-
+const DEFAULT_MESSAGE = "Changes you made may not be saved.";
 /**
  * @summary Prompts the user before unloading the page.
  * @param message - The message to display to the user.
  * @example promptBeforeUnload("Are you sure you want to leave?");
  */
-export const promptBeforeUnload = (message: string): void => {
+export const promptBeforeUnload = (message: string = DEFAULT_MESSAGE): void => {
   window.addEventListener("beforeunload", (event) => {
     event.preventDefault();
     event.returnValue = message;
   });
 };
-
 //#endregion
 
 //#endregion
